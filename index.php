@@ -24,14 +24,15 @@
         
         <?php
 
-            include("Formation.php");
-            include("FormationModel.php");
-
             if(isset($_GET["page"])){
                 $maPage= $_GET["page"];
 
                 switch ($maPage) {
                     case 'formation':
+                        /**
+                         * Importation, inclusion des fonctionnalités sur l'accès aux données de formations (dans la base de données)
+                         */
+                        include_once("FormationModel.php"); 
                         $model = new FormationModel();
                         $toutesFormations = $model->getAllTrainings(); 
                         include("formations.php");
@@ -50,13 +51,13 @@
                         break;
 
                     default:
-                        include("home.php");
+                        include("welcome.php");
                         break;
                 }   
 
 
             }else {
-                include("home.php");
+                include("welcome.php");
             }
         ?>
 
