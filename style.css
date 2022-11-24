@@ -1,0 +1,50 @@
+/* Surlignage des titres h1 */
+h1 {
+    text-decoration: underline;
+}
+
+/* Couleur de fond de tout contenu */
+body {
+    background-color: bisque;
+    /* text-decoration: underline; */
+}
+
+
+
+
+
+/* Centrage du logo  */
+.style-logo {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style du pied de page -footer */
+.style-footer {
+    border-width: 2px;
+    border-style: solid;
+    color:white ;
+    background-color: #df0059;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Image de fond  de la barre de navigation */
+nav{
+    background-color: #df0059;
+}
+
+/* Coloriage des Liens hypertextes en blanc */
+nav a{
+    color: white;
+}
+
+
+/* Menu de navigation  */
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+    justify-content: center;
+    
+}
