@@ -1,3 +1,14 @@
+<?php
+
+
+    $isConnected = false;
+
+    //!$isConnected équivalent à $isConnected == false
+    if(!$isConnected){ 
+        header("Location:login.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,22 +70,13 @@
             }else {
                 include("welcome.php");
             }
+
+
+
+            include_once("footer.html");
+
         ?>
 
-        
-        <footer>
-            <div class="style-footer">
-                <p>
-                    Fait avec amour par PAC! 
-                </p>
-                <p>
-                    L'informatique au Féminin
-                </p>
-                <p>
-                    PAC - 2022
-                </p>
-            </div>
-     
-        </footer>
+
 </body>
 </html>

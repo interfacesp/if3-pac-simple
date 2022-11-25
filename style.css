@@ -9,6 +9,25 @@ body {
     /* text-decoration: underline; */
 }
 
+#connexion {
+   text-align: center;  
+}
+
+
+#form_elem_connection {
+    display: flex;
+    flex-direction: column;
+}
+
+#form_connection {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=submit] {
+    color: white;
+    background-color: blue;  
+}
 
 .droite{
     float: right;
