@@ -1,7 +1,6 @@
 <?php
-
-
-    $isConnected = false;
+    session_start();
+    $isConnected = isset($_SESSION["if3-user-email"]);
 
     //!$isConnected équivalent à $isConnected == false
     if(!$isConnected){ 
@@ -20,16 +19,21 @@
 </head>
 <body>
         <header>
-
             <div class="style-logo">
                 <a href="index.php">   
                     <img src="medias/images/logo-if3.png" alt="Logo Interface3">
                 </a>
             </div>
 
-        <?php
-           include("nav.php");
-        ?>
+            <div class="toTheRight">
+                 Coucou <?php echo $_SESSION["if3-user-nom"] ?>
+                 <a href="logout.php">Se déconnecter</a>
+            </div>
+
+            <?php
+                include("nav.php");
+            ?>
+
         </header>
     
         

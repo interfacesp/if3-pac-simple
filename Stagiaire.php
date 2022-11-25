@@ -10,6 +10,7 @@ class Stagiaire {
     public string $email; 
     public string $motDePasse;
     
+
     
     function __construct(string $nn, //numéro national 
                         string $unNom, //un nom 

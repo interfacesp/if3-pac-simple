@@ -1,4 +1,12 @@
 <?php
+
+    /**
+     * !! Première chose à faire - session_start()
+     * On démarre la session toujours en début de script. 
+     * Dans la session, nous allons y stocker des infos de la personne connectée.  
+     */
+    session_start(); 
+
     /**
      * On peut récupérer le nom du script actuel, de manière dynamique
      * 
@@ -6,11 +14,14 @@
      */    
     // $nomScriptActuel = $_SERVER["PHP_SELF"]; 
 
-    //***** Traitement de la connexion  */
+    
     $connexionEnCours = isset($_POST["eml"], $_POST["pass"]);
 
     if($connexionEnCours){
-
+        
+        /***** Traitement de la connexion 
+        * Si nous sommes ici -> c'est parce l'utilisateur a cliqué sur le bouton "connexion"
+        */
         $emlLogin = $_POST["eml"];
         $passLogin = $_POST["pass"];
 
@@ -25,16 +36,24 @@
 
             if(password_verify($passLogin, $stag->motDePasse)){
                 //ok pour se connecter-> les mots de passe correspondent
+                $_SESSION["if3-user-email"] = $emlLogin;
+                $_SESSION["if3-user-nom"] = $stag->nom; 
+                //... possible de retenir plus d'informations si besoin :) 
 
-                
+                /**
+                 * on redirige vers la page d'accueil qui se comportera autrement: accueillera la personne connectée
+                 */
+                header("location:index.php");
+ 
+
             }else{
                 //même si stagiaire trouvées, mots de passe ne correspondent pas
-
+                $passwordNotMatch = true;  
 
             }
 
-        }else {// $stag == NULL , pas trouvé de stagiare avec email
-            echo "<p></p>";
+        }else {// $stag == NULL , pas trouvé de stagiaire avec cet email
+            $userNotExist = true;
         }
 
 
@@ -90,16 +109,24 @@ Si on ne met rien dans action, traitement dans le script actuel  -->
         <p>
             <input type="submit" value="Connexion">
         </p>
+
     </div>
-
-   
-
 </form>
 
-    <?php
-            include_once ("footer.html");
+    <p class="error">
+            <?php
+                if(isset($passwordNotMatch) && $passwordNotMatch ){
+                    echo "les mots de passe ne correspondent pas";
+                }
+                if(isset($userNotExist) && $userNotExist ){
+                    echo "Nous n'avons pas trouvé de stagiaire avec cet email";
+                }
+            ?>
+        </p>
 
-    ?>
+<?php
+    include_once ("footer.html");
+?>
     
 </body>
 </html>

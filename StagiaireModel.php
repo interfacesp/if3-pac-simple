@@ -32,7 +32,7 @@ class StagiaireModel {
      * de nous renvoyer un.e Stagiaire dont l'email 
      * est passé en paramètre
      */
-    function getStagiaireWithEmail(string $email): Stagiaire {
+    function getStagiaireWithEmail(string $email) {
         
         $emailParam = trim($email);
 
@@ -49,7 +49,7 @@ class StagiaireModel {
         $nombreStagiaires = count($result);
 
         if($nombreStagiaires == 0 ){
-            return new Stagiaire("","","","","",""); 
+            return NULL;
         }
 
         return new Stagiaire(

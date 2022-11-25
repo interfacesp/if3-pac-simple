@@ -9,8 +9,15 @@ body {
     /* text-decoration: underline; */
 }
 
+/**
+* Ce style concerne la balise HTML ayant comme id=connexion
+*/
 #connexion {
    text-align: center;  
+}
+
+.error {
+    color: red;
 }
 
 
@@ -29,11 +36,9 @@ input[type=submit] {
     background-color: blue;  
 }
 
-.droite{
+.toTheRight{
     float: right;
 }
-
-
 
 
 /* Centrage du logo  */
