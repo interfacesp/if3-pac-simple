@@ -65,6 +65,41 @@ class StagiaireModel {
     }
 
 
+    function inscrire(Stagiaire $nouvStagiaire) : void{
+
+        /**
+         * Avant de sauvegarder mot de passe, on le nettoie (enlever espaces) et le crypte
+         */
+        $mdpForDB = trim($nouvStagiaire->motDePasse);
+        $hashMotDePasse= password_hash($mdpForDB, PASSWORD_DEFAULT); 
+
+        $query= "
+                INSERT INTO stagiaire(numero_national,nom,prenom,date_naissance,email,password) 
+                VALUES(?,?,?,?,?,?); 
+        "; 
+        
+        try {
+
+                $request= $this->myPDO->prepare($query);
+                $request->execute([
+                    $nouvStagiaire->numNational,
+                    $nouvStagiaire->nom,
+                    $nouvStagiaire->prenom,
+                    $nouvStagiaire->dateNaissance,
+                    $nouvStagiaire->email,
+                    $hashMotDePasse //on stocke le hash du mot de passe en clair
+            ]);
+
+        }catch (PDOException $exception){
+            die("erreur dans l'insertion : $exception->getMessage()");
+        }
+
+       
+
+
+    }
+
+
 
 }
 

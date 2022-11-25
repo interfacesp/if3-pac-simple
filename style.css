@@ -16,6 +16,11 @@ body {
    text-align: center;  
 }
 
+.centrage {
+    display: flex;
+    justify-content: center;
+}
+
 .error {
     color: red;
 }
@@ -34,6 +39,11 @@ body {
 input[type=submit] {
     color: white;
     background-color: blue;  
+}
+
+
+input {
+    width: 100%;
 }
 
 .toTheRight{

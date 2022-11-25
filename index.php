@@ -18,24 +18,16 @@
     <title>Interface3 - Home</title>
 </head>
 <body>
-        <header>
-            <div class="style-logo">
-                <a href="index.php">   
-                    <img src="medias/images/logo-if3.png" alt="Logo Interface3">
-                </a>
-            </div>
+        <?php
+            include("entete.html");
 
-            <div class="toTheRight">
+            include("nav.php");
+        ?>
+    
+        <div class="toTheRight">
                  Coucou <?php echo $_SESSION["if3-user-nom"] ?>
                  <a href="logout.php">Se déconnecter</a>
-            </div>
-
-            <?php
-                include("nav.php");
-            ?>
-
-        </header>
-    
+        </div>
         
         <?php
 

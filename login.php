@@ -73,6 +73,8 @@
 </head>
 <body>
 
+<?php include_once 'entete.html'; ?>
+
 <h2 id="connexion">Connectez-vous pour continuer</h2>
 
 
@@ -104,6 +106,10 @@ Si on ne met rien dans action, traitement dans le script actuel  -->
         <p>
             <label for="id_password">Votre mot de passe:</label> <br>
             <input type="password" name="pass" id="id_password">
+        </p>
+
+        <p>
+            Pas inscrit.e? <a href="inscription.php">Inscrivez-vous</a>
         </p>
 
         <p>
